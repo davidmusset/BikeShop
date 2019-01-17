@@ -38,7 +38,6 @@ h2{
     width: 100%;
     padding-bottom: 20px;
     border-radius: 5px;
-
 }
 
 .headers{
@@ -71,8 +70,8 @@ h2{
   border: 2px solid #F1F3F4;
   border-radius: 5px;
   padding: 5px;
-  width: 60%;
-  display: inline;
+  width: 100%;
+
 }
 
 .qty{
@@ -90,10 +89,7 @@ h2{
   border-radius: 3px;
   color: #03ADC0;
   padding: 8px;
-}
-.trash :hover{
-  background-color:#03ADC0;
-  color: #FFFFFF;
+  background-color:#FFFFFF;
 }
 
 .renewicon{
@@ -101,11 +97,10 @@ h2{
   border-radius: 3px;
   color: #03ADC0;
   padding: 8px;
-  margin-left: 20px;
-  display: inline;
+  background-color:#FFFFFF;
 }
 
-.qty :hover{
+.iconlink :hover{
   background-color:#03ADC0;
   color: #FFFFFF;
 }
@@ -133,14 +128,20 @@ h2{
 }
 
 #link{
-  color: blue;
+  color: red;
   font-weight: bold;
 }
 
 #header{
   margin-top: 50px;
   height:220px;
-  background-image: url('bike-background.jpg');
+  background-image: url('../images/bike-background.jpg');
   background-size: cover;
   background-position: center;
+}
+
+#errorQty{
+  color: red;
+  font-size: 12px;
+  text-align: center;
 }
