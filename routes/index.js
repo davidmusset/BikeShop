@@ -6,27 +6,27 @@ var  dataBike = {
   Prices : [679, 799, 839, 1299, 989, 209]
 };
 
-var dataCardBike2 = [];
-
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', {
-    dataBike: dataBike
+    dataBike
   });
 });
 
 router.get('/shop', function(req, res, next) {
+  if (req.session.dataCardBike == undefined){req.session.dataCardBike=[]};
   res.render('shop', {
-     dataCardBike2 : dataCardBike2
+     dataCardBike : req.session.dataCardBike
    });
 });
 
 router.post('/shop', function(req, res, next) {
+  if (req.session.dataCardBike == undefined){req.session.dataCardBike=[]};
 
-  if ((dataCardBike2.find( model => model.Model === req.body.bikeNameFromFront) === undefined))
+  if ((req.session.dataCardBike.find( model => model.Model === req.body.bikeNameFromFront) === undefined))
   {
-    dataCardBike2.push({
+    req.session.dataCardBike.push({
     Model : req.body.bikeNameFromFront,
     Price : req.body.bikePriceFromFront,
     Quantity: req.body.bikeQuantityFromFront,
@@ -34,30 +34,28 @@ router.post('/shop', function(req, res, next) {
   });
   }
   else {
-    dataCardBike2.find( model => model.Model === req.body.bikeNameFromFront).Quantity ++ ;
+    req.session.dataCardBike.find( model => model.Model === req.body.bikeNameFromFront).Quantity ++ ;
   }
 
-
-
   res.render('shop', {
-      dataCardBike2 : dataCardBike2
+      dataCardBike : req.session.dataCardBike
    });
 });
 
 router.post('/delete', function(req, res, next) {
 
-    dataCardBike2.splice(req.body.numberToDelete,1)
+    req.session.dataCardBike.splice(req.body.numberToDelete,1)
 
   res.render('shop', {
-      dataCardBike2 : dataCardBike2
+      dataCardBike : req.session.dataCardBike
    });
 });
 
 router.post('/changeQuantity', function(req, res, next) {
 
-  dataCardBike2.find( model => model.Model === req.body.Model).Quantity = req.body.newQuantity  ;
+  req.session.dataCardBike.find( model => model.Model === req.body.Model).Quantity = req.body.newQuantity  ;
   res.render('shop', {
-      dataCardBike2 : dataCardBike2
+      dataCardBike : req.session.dataCardBike
    });
 });
 
