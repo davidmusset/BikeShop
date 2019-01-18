@@ -8,9 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="stylesheets/style.css">
-    <script type="text/javascript" src="javascripts/script.js">
 
-    </script>
   </head>
   <body>
 
@@ -80,11 +78,12 @@
       </div>
   </div>
 
+<div class="allProducts">
   <%
   var total = 0;
   for(i=0;i<dataCardBike.length;i++){
     %>
-    <div class="row products">
+    <div class="row products lineProduct<%=i%>">
       <div class="col-5 col-md-3">
         <img class="imgproduct" src="images/<%= dataCardBike[i].Image %>">
       </div>
@@ -108,20 +107,21 @@
       <div class="col-2 col-md-1">
         <%= dataCardBike[i].Price %>€
       </div>
-      <div class="col-1 d-none d-md-block">
+      <div class="col-1 d-none d-md-block" id="total<%=i%>">
         <% total = total + dataCardBike[i].Price*dataCardBike[i].Quantity %>
         <%= dataCardBike[i].Price*dataCardBike[i].Quantity %>€
       </div>
 
-        <form action="delete" method='post'>
+        <!-- <form action="delete" method='post'> -->
           <input type="hidden" name="numberToDelete" value="<%=i%>">
           <div class="iconlink col-2 col-md-1">
-            <button type="submit" class="trashicon material-icons">delete</button>
+            <div type="submit" class="trashicon material-icons" id="<%=i%>">delete</div>
           </div>
-        </form>
+        <!-- </form> -->
 
   </div>
   <% } %>
+</div>
 
 
   <div class="row total text-left">
@@ -131,7 +131,7 @@
         Total Basket:
       </div>
       <div class="col-2 col-md-1">
-        <%= total %>€
+        <p id="total"><%= total %>€</p>
       </div>
       <div class="col-2 col-md-1">
       </div>
@@ -146,7 +146,7 @@
 </div>
 
 
-
+  <script src="javascripts/script.js"></script>
 
   </body>
 </html>

@@ -16,6 +16,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/shop', function(req, res, next) {
   if (req.session.dataCardBike == undefined){req.session.dataCardBike=[]};
+
   res.render('shop', {
      dataCardBike : req.session.dataCardBike
    });
@@ -57,6 +58,7 @@ router.post('/changeQuantity', function(req, res, next) {
   res.render('shop', {
       dataCardBike : req.session.dataCardBike
    });
+   
 });
 
 module.exports = router;
