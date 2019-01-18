@@ -1,0 +1,147 @@
+body{
+  margin:0px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+h5{
+  font-weight: bold;
+}
+
+h2{
+  font-weight: bold;
+  margin: 10px;
+  padding-top: 10px;
+}
+
+.price{
+  font-weight: bold;
+  display: inline;
+}
+
+.btn{
+  font-weight: bold;
+}
+
+.checkoutBTN{
+  font-weight: bold;
+  margin: 20px;
+}
+
+.navbar{
+  background-color: #222f3e;
+  color:#FFFFFF;
+}
+
+.bikebox{
+    border: 2px solid #F1F3F4;
+    margin:100x;
+    width: 100%;
+    padding-bottom: 20px;
+    border-radius: 5px;
+}
+
+.headers{
+  font-weight: bold;
+  border-top: 1px solid #F1F3F4;
+  padding: 10px;
+}
+
+.products{
+  border-top: 1px solid #F1F3F4;
+  padding: 10px;
+}
+
+.total{
+  border-top: 1px solid #F1F3F4;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.checkout{
+  border-top: 1px solid #F1F3F4;
+  font-weight: bold;
+}
+
+.imgproduct{
+  width: 70%;
+}
+
+.inputqty{
+  border: 2px solid #F1F3F4;
+  border-radius: 5px;
+  padding: 5px;
+  width: 100%;
+
+}
+
+.qty{
+  width: 100%;
+}
+
+.bike{
+  width: inherit;
+  padding-top: 5px;
+  padding-bottom: 20px;
+}
+
+.trashicon{
+  border: 1px solid #03ADC0;
+  border-radius: 3px;
+  color: #03ADC0;
+  padding: 8px;
+  background-color:#FFFFFF;
+}
+
+.renewicon{
+  border: 1px solid #03ADC0;
+  border-radius: 3px;
+  color: #03ADC0;
+  padding: 8px;
+  background-color:#FFFFFF;
+}
+
+.iconlink :hover{
+  background-color:#03ADC0;
+  color: #FFFFFF;
+}
+
+
+.bikerow{
+  margin-top: 30px;
+}
+
+.material-icons{
+  font-size: 16px;
+}
+
+#menu{
+
+  border: 1px solid #F1F3F4;
+  background-color: #F1F3F4;
+  margin-top : 100px;
+  margin-left:10px;
+  margin-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  border-radius: 5px;
+}
+
+#link{
+  color: red;
+  font-weight: bold;
+}
+
+#header{
+  margin-top: 50px;
+  height:220px;
+  background-image: url('../images/bike-background.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+#errorQty{
+  color: red;
+  font-size: 12px;
+  text-align: center;
+}
