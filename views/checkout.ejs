@@ -8,6 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="stylesheets/style.css">
+
   </head>
   <body>
 
@@ -18,7 +19,7 @@
   <nav class="navbar navbar-expand-sm navbar-dark fixed-top" id="mynavbar">
 
   <a class="navbar-brand" href="#">
-  <i class="material-icons">shopping_cart</i>my Basket</a>
+  <i class="material-icons">shopping_cart</i>Checkout</a>
 
   <!-- PAS DE BOUTONS -->
 
@@ -43,7 +44,7 @@
   <div class="row">
       <div class="col-12">
         <div id="menu">
-          <span id=link><a href="/"> Shop</a> </span> / Basket
+          <span id=link><a href="/"> Shop</a> </span> / Checkout
           </div>
       </div>
   </div>
@@ -51,7 +52,7 @@
   <div class="row">
     <div class="col-12">
       <div id="Basket">
-        <h2> Basket </h2>
+        <h3> Thanks for your purchase ! </h3>
       </div>
     </div>
   </div>
@@ -69,11 +70,8 @@
       <div class="col-2 col-md-1">
         Price
       </div>
-      <div class="col-1 d-none d-md-block">
+      <div class="col-2 d-none d-md-block text-center">
         Total
-      </div>
-      <div class="col-2 col-md-1">
-        Suppr
       </div>
   </div>
 
@@ -93,12 +91,9 @@
 
             <form class="row" action="changeQuantity" method="post">
               <div class="col-7">
-                <input class="inputqty" name="newQuantity" type=text value="<%= dataCardBike[i].Quantity %>">
-                <input type="hidden" name="Model" value="<%=dataCardBike[i].Model%>">
-              <p id="errorQty"></p>
+                <%= dataCardBike[i].Quantity %>
               </div>
               <div class="iconlink col-5">
-                <button type="submit" class="material-icons renewicon">cached</button>
               </div>
           </form>
 
@@ -106,47 +101,34 @@
       <div class="col-2 col-md-1">
         <%= dataCardBike[i].Price %>€
       </div>
-      <div class="col-1 d-none d-md-block" id="total<%=i%>">
+      <div class="col-2 d-none d-md-block text-center" id="total<%=i%>">
         <% total = total + dataCardBike[i].Price*dataCardBike[i].Quantity %>
         <%= dataCardBike[i].Price*dataCardBike[i].Quantity %>€
       </div>
-
-        <!-- <form action="delete" method='post'> -->
-          <input type="hidden" name="numberToDelete" value="<%=i%>">
-          <div class="iconlink col-2 col-md-1">
-            <div type="submit" class="trashicon material-icons" id="<%=i%>">delete</div>
-          </div>
-        <!-- </form> -->
 
   </div>
   <% } %>
 </div>
 
 
-  <div class="row total text-left">
+  <div class="row total text-center">
       <div class="col-5 col-md-9">
       </div>
       <div class="col-3 col-md-1">
-        Total Basket:
+        Total Paid:
       </div>
-      <div class="col-2 col-md-1">
+      <div class="col-2 col-md-1 ">
         <p id="total"><%= total %>€</p>
       </div>
       <div class="col-2 col-md-1">
       </div>
   </div>
 
-  <div class="row checkout text-right">
-      <div class="col-12">
-        <button id="customButton">Purchase</button>
-      </div>
-  </div>
 
 </div>
 
-  <script src="https://checkout.stripe.com/checkout.js"></script>
-  <script src="javascripts/script.js"></script>
 
+  <script src="javascripts/script.js"></script>
 
   </body>
 </html>

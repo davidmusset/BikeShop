@@ -6,6 +6,8 @@ var  dataBike = {
   Prices : [679, 799, 839, 1299, 989, 209]
 };
 
+var stripe = require("stripe")("sk_test_pbMYVrispbhfITAvbpcDCVgK");
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -52,12 +54,43 @@ router.post('/delete', function(req, res, next) {
    });
 });
 
+
 router.post('/changeQuantity', function(req, res, next) {
 
   req.session.dataCardBike.find( model => model.Model === req.body.Model).Quantity = req.body.newQuantity  ;
   res.render('shop', {
       dataCardBike : req.session.dataCardBike
    });
+
+});
+
+router.post('/checkout', function(req,res,next){
+  console.log("hh");
+  if (req.session.dataCardBike.length == 0){
+    console.log("erreur");;
+  }
+  else{
+    var prix = 0;
+    var descriptionAchat =""
+    for(i=0; i < req.session.dataCardBike.length; i++){
+      prix = prix + req.session.dataCardBike[i].Price *  req.session.dataCardBike[i].Quantity
+      descriptionAchat = descriptionAchat + " " + req.session.dataCardBike[i].Model
+    }
+
+
+      const token = req.body.stripeToken; // Using Express
+      const charge = stripe.charges.create({
+        amount: prix*100,
+        currency: 'eur',
+        description: 'Achat de' + descriptionAchat,
+        source: token,
+      });
+  }
+
+
+  res.render('checkout',{
+    dataCardBike : req.session.dataCardBike
+  });
 
 });
 

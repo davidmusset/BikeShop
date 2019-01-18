@@ -13,6 +13,15 @@ h2{
   padding-top: 10px;
 }
 
+h3{
+  font-weight: bold;
+  margin: 10px;
+  padding-top: 10px;
+  color: #0056B3;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
 .price{
   font-weight: bold;
   display: inline;
@@ -105,7 +114,6 @@ h2{
   color: #FFFFFF;
 }
 
-
 .bikerow{
   margin-top: 30px;
 }
@@ -144,4 +152,20 @@ h2{
   color: red;
   font-size: 12px;
   text-align: center;
+}
+
+#customButton{
+  background-color:transparent !important;
+  color: #03ADC0 !important;
+  border: 2px solid #03ADC0 !important;
+  padding: 5px;
+  font-weight: 700;
+  border-radius: 2px;
+}
+
+#customButton:hover{
+  background-color: #03ADC0 !important;
+  color: #FFF !important;
+  transition: 200ms;
+  cursor: pointer;
 }

@@ -32,3 +32,35 @@ $(".trashicon").each(
 )
 }
 )
+
+var handler = StripeCheckout.configure({
+  key: 'pk_test_0IMcMatLvhq5MxMbvdGfYdoZ',
+  image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
+  locale: 'auto',
+  token: function(token) {
+    $.ajax({
+      type: "POST",
+      url: "/checkout",
+      data: {stripeToken : token.id},
+      success:function(code_html, statut){
+        $("html").empty();
+        $("html").append(code_html);
+      }})
+  }
+});
+
+document.getElementById('customButton').addEventListener('click', function(e) {
+  // Open Checkout with further options:
+  handler.open({
+    name: 'David Musset',
+    description: '2 widgets',
+    currency: 'eur',
+    amount: parseInt($('#total').text())*100
+  });
+  e.preventDefault();
+});
+
+// Close Checkout on page navigation:
+window.addEventListener('popstate', function() {
+  handler.close();
+});
