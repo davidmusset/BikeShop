@@ -44,7 +44,7 @@ router.post('/shop', function(req, res, next) {
 });
 
 router.post('/delete', function(req, res, next) {
-
+    
     req.session.dataCardBike.splice(req.body.numberToDelete,1)
 
   res.render('shop', {
@@ -58,7 +58,7 @@ router.post('/changeQuantity', function(req, res, next) {
   res.render('shop', {
       dataCardBike : req.session.dataCardBike
    });
-   
+
 });
 
 module.exports = router;

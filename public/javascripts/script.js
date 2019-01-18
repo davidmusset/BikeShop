@@ -7,23 +7,25 @@
 // }
 
 // document.getElementsByClassName('trashicon')
-function total() {
-
-}
+var cardLine = [];
 
 $(".trashicon").each(
+
   function(){
     var i = $(this).attr('id');
+    cardLine.push(i)
+
   $(this).click(
   function(){
     $.ajax({
       type: "POST",
       url: "/delete",
-      data: {numberToDelete:i},
+      data: {numberToDelete: cardLine.indexOf(i)},
       success:function(){
       var newTotal =  parseInt($('#total').text().slice(0, -1)) - parseInt($('#total'+i).text());
       $('#total').text(newTotal+"€")
         $('.lineProduct'+i).remove();
+        cardLine.splice(cardLine.indexOf(i),1)
       }
     });
   }
