@@ -87,7 +87,8 @@ router.post('/checkout', function(req,res,next){
       });
   }
 
-
+ req.session.dataCardBike = [];
+ 
   res.render('checkout',{
     dataCardBike : req.session.dataCardBike
   });

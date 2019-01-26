@@ -52,7 +52,7 @@ var handler = StripeCheckout.configure({
 document.getElementById('customButton').addEventListener('click', function(e) {
   // Open Checkout with further options:
   handler.open({
-    name: 'David Musset',
+    name: 'BikeShop',
     description: '2 widgets',
     currency: 'eur',
     amount: parseInt($('#total').text())*100
